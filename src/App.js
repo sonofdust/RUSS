@@ -8,7 +8,6 @@ const title = "Meal Schedule";
 const App = () => {
   return (
     <div className="App">
-      <label>Hello</label>
       <h8k-navbar header={title}></h8k-navbar>
       <GuestForm />
     </div>
