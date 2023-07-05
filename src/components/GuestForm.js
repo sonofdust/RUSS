@@ -37,13 +37,12 @@ function GuestForm() {
   const handleAddToMenu = () => {
     if (!!guestName && !!checkInDate && !!checkOutDate) {
       generateDateRange();
+      setGuestName("");
+      setCheckInDate(null);
+      setCheckOutDate(null);
     } else {
       setIsOpen(true);
     }
-
-    setGuestName("");
-    setCheckInDate(null);
-    setCheckOutDate(null);
   };
 
   return (
