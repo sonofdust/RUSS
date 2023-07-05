@@ -53,6 +53,7 @@ function GuestForm() {
     // console.log("Check-in Date:", checkInDate);
     // console.log("Check-out Date:", checkOutDate);
     setItems(generateDateRange());
+    console.log(items);
     // Reset input values
     setGuestName("");
     setCheckInDate(null);
