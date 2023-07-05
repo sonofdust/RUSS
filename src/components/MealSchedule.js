@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 function MealSchedule(props) {
   const {items} = props;
-  const [dataObject, setDataObject] = useState({});
+  //const [dataObject, setDataObject] = useState({});
 
   useEffect(() => {
     // You can perform any additional actions with the updated dataObject if needed
@@ -10,6 +10,7 @@ function MealSchedule(props) {
     // if (setItem) {
     //   setItem(newDataObject);
     // }
+    console.log("MY ITEMS: ", items);
   }, [items]);
 
   return (
@@ -23,11 +24,11 @@ function MealSchedule(props) {
           </tr>
         </thead>
         <tbody data-testid="guest-list">
-          {items.map((e) => (
+          {Object.keys(items).map((key) => (
             <tr>
-              <td>{e.date}</td>
+              <td>{key}</td>
               <td>
-                <p>{e.guestName}</p>
+                <p>{items[key]}</p>
               </td>
             </tr>
           ))}

@@ -7,24 +7,31 @@ function GuestForm() {
   const [guestName, setGuestName] = useState("");
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState({});
+  const scheduleObject = {};
 
   const generateDateRange = () => {
     const startDate = new Date(checkInDate);
     const endDate = new Date(checkOutDate);
 
-    const datesArray = [];
     const currentDate = new Date(startDate);
-
+    console.log("Generating date range.");
     while (currentDate <= endDate) {
-      datesArray.push({
-        date: currentDate.toISOString().split("T")[0],
-        guestName: guestName,
-      });
-      currentDate.setDate(currentDate.getDate() + 1);
+      const dateKey = currentDate.toISOString().split("T")[0];
+      if (!!scheduleObject[dateKey]) {
+        scheduleObject[dateKey] = scheduleObject[dateKey] + "\n" + guestName;
+      } else {
+        scheduleObject[dateKey] = guestName;
+      }
+      // datesArray.push({
+      //   date: currentDate.toISOString().split("T")[0],
+      //   guestName: guestName,
+      // });
+      // currentDate.setDate(currentDate.getDate() + 1);
     }
-
-    return datesArray;
+    return scheduleObject;
+    //    console.log(scheduleObject);
+    // return datesArray;
   };
 
   const handleGuestNameChange = (event) => {
@@ -40,10 +47,11 @@ function GuestForm() {
   };
 
   const handleAddToMenu = () => {
+    console.log("we are here");
     // Perform any desired action with the input values
-    console.log("Guest Name:", guestName);
-    console.log("Check-in Date:", checkInDate);
-    console.log("Check-out Date:", checkOutDate);
+    // console.log("Guest Name:", guestName);
+    // console.log("Check-in Date:", checkInDate);
+    // console.log("Check-out Date:", checkOutDate);
     setItems(generateDateRange());
     // Reset input values
     setGuestName("");
