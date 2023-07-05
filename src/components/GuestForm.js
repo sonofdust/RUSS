@@ -25,7 +25,6 @@ function GuestForm() {
         temp[dateKey] = guestName;
       }
       setItems(temp);
-
       currentDate.setDate(currentDate.getDate() + 1);
     }
   };

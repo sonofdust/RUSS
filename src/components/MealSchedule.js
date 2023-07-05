@@ -7,7 +7,6 @@ function MealSchedule(props) {
     <div className="card w-40 pt-30 pb-8 mt-20">
       <table>
         <thead>
-          {}
           <tr>
             <th>Date</th>
             <th>Customer Name for Meals</th>
