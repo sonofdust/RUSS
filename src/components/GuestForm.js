@@ -30,18 +30,6 @@ function GuestForm() {
     }
   };
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // const handleGuestNameChange = (event) => {
-  //   setGuestName(event.target.value);
-  // };
-
-  // const handleCheckInDateChange = (date) => {
-  //   setCheckInDate(date);
-  // };
-
   const handleCheckOutDateChange = (date) => {
     setCheckOutDate(date);
   };
@@ -108,7 +96,13 @@ function GuestForm() {
                   <p>Please enter all the fields.</p>
                 </td>
                 <td>
-                  <button onClick={toggleModal}>Ok</button>
+                  <button
+                    onClick={() => {
+                      setIsOpen(!isOpen);
+                    }}
+                  >
+                    Ok
+                  </button>
                 </td>
               </tr>
             </table>
